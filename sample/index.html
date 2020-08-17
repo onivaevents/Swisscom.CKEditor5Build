@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>CKEditor 5 – classic editor build – development sample</title>
+	<link rel="stylesheet" type="text/css" href="https://sdx.scsstatic.ch/v1.29.0/css/sdx.min.css">
+	<style>
+		body {
+			max-width: 800px;
+			margin: 20px auto;
+		}
+	</style>
+</head>
+<body>
+
+<h1>CKEditor 5 – Zoon Editor Build</h1>
+
+<h2>CKEditor 5 ClassicEditor with Plugins</h2>
+
+<div id="classic-editor">
+	<h2>Sample</h2>
+	Hello
+	<span class="swisscom_ck5_placeholder" data-value="firstname">Vorname</span>
+	<span class="swisscom_ck5_placeholder" data-value="lastname">Nachname</span>
+	<span class="swisscom_ck5_placeholder" data-value="personallink" data-type="calltoaction">Personal Link</span>
+	<a class="swisscom_ck5_calltoaction" href="#">Foo</a>
+
+	<p>This is an instance of the <a href="https://ckeditor.com/docs/ckeditor5/latest/builds/guides/overview.html#classic-editor">classic editor build</a>.</p>
+
+	<figure class="image">
+		<img src="../tests/manual/sample.jpg" alt="Autumn fields" />
+	</figure>
+
+	<p>You can use this sample to validate whether your <a href="https://ckeditor.com/docs/ckeditor5/latest/builds/guides/development/custom-builds.html">custom build</a> works fine.</p>
+</div>
+
+<br/>
+<br/>
+<br/>
+
+<h2>CKEditor 5 Inline Editor with Plugins</h2>
+
+<div id="inline-editor">
+	<h2>Sample</h2>
+	Hello
+	<span class="swisscom_ck5_placeholder" data-value="firstname">Vorname</span>
+	<span class="swisscom_ck5_placeholder" data-value="lastname">Nachname</span>
+	<span class="swisscom_ck5_placeholder" data-value="personallink" data-type="calltoaction">Personal Link</span>
+	<a class="swisscom_ck5_calltoaction" href="#">Foo</a>
+
+	<p>This is an instance of the <a href="https://ckeditor.com/docs/ckeditor5/latest/builds/guides/overview.html#classic-editor">classic editor build</a>.</p>
+
+	<figure class="image">
+		<img src="../tests/manual/sample.jpg" alt="Autumn fields" />
+	</figure>
+
+	<p>You can use this sample to validate whether your <a href="https://ckeditor.com/docs/ckeditor5/latest/builds/guides/development/custom-builds.html">custom build</a> works fine.</p>
+</div>
+
+<script src="../build/ckeditor.js"></script>
+<script>
+	swisscomEditors.ClassicEditor.create( document.querySelector( '#classic-editor' ), {
+		toolbar: {
+			items: [
+				'bold',
+				'italic',
+				'|',
+				'bulletedList',
+				'numberedList',
+				'|',
+				'link',
+				'|',
+				'insertTable',
+				'|',
+				'placeholder', // no visible on default
+				// callToAction -> is not a plugin but a link decorator defined in the editor config
+			]
+		},
+		table: {
+			contentToolbar: [
+				'tableColumn',
+				'tableRow',
+				'mergeTableCells'
+			]
+		},
+		link: {
+				decorators: {
+					toggleCallToAction: {
+						mode: "manual",
+						label: "CallToAction Button",
+						attributes: {
+						class: "swisscom_ck5_calltoaction",
+					},
+				},
+			}
+		},
+		// This value must be kept in sync with the language defined in webpack.config.js.
+		language: 'en',
+	})
+		.then( editor => {
+			window.editor = editor;
+		} )
+		.catch( error => {
+			console.error( 'There was a problem initializing the editor.', error );
+		} );
+	swisscomEditors.InlineEditor.create( document.querySelector( '#inline-editor' ), {
+	toolbar: {
+		items: [
+			'bold',
+			'italic',
+			'|',
+			'bulletedList',
+			'numberedList',
+			'|',
+			'link',
+			'|',
+			'insertTable',
+			'|',
+			'placeholder', // no visible on default
+			// callToAction -> is not a plugin but a link decorator defined in the editor config
+		]
+	},
+	table: {
+		contentToolbar: [
+			'tableColumn',
+			'tableRow',
+			'mergeTableCells'
+		]
+	},
+	link: {
+			decorators: {
+				toggleCallToAction: {
+					mode: "manual",
+					label: "CallToAction Button",
+					attributes: {
+					class: "swisscom_ck5_calltoaction",
+				},
+			},
+		}
+	},
+	// This value must be kept in sync with the language defined in webpack.config.js.
+	language: 'en',
+})
+	.then( editor => {
+		window.editor = editor;
+	} )
+	.catch( error => {
+		console.error( 'There was a problem initializing the editor.', error );
+	} );
+</script>
+
+</body>
+</html>

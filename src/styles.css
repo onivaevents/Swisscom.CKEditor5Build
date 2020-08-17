@@ -1,0 +1,19 @@
+.swisscom_ck5_calltoaction {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding-left: 28px;
+	padding-right: 28px;
+	border-radius: 5px;
+	background: #1781e3;
+	color: white;
+	height: 48px;
+	text-decoration: none;
+	min-width: 160px;
+  }
+
+.swisscom_ck5_calltoaction.ck-link_selected,
+.swisscom_ck5_calltoaction:hover {
+	background: #0851da !important;
+	color: white !important;
+}
