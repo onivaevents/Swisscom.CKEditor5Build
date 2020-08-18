@@ -6,6 +6,7 @@
 // The editor creator to use.
 import ClassicEditorBase from '@ckeditor/ckeditor5-editor-classic/src/classiceditor';
 import InlineEditorBase from '@ckeditor/ckeditor5-editor-inline/src/inlineeditor';
+import DecoupledEditorBase from '@ckeditor/ckeditor5-editor-decoupled/src/decouplededitor';
 
 import Essentials from '@ckeditor/ckeditor5-essentials/src/essentials';
 import UploadAdapter from '@ckeditor/ckeditor5-adapter-ckfinder/src/uploadadapter';
@@ -95,7 +96,12 @@ export class InlineEditor extends InlineEditorBase {}
 InlineEditor.builtinPlugins = plugins;
 InlineEditor.defaultConfig = defaultConfig;
 
+export class DecoupledEditor extends DecoupledEditorBase {}
+DecoupledEditor.builtinPlugins = plugins;
+DecoupledEditor.defaultConfig = defaultConfig;
+
 export default {
-	ClassicEditor: ClassicEditor,
-	InlineEditor: InlineEditor
+	ClassicEditor,
+	InlineEditor,
+	DecoupledEditor,
 }

@@ -57,8 +57,74 @@
 	<p>You can use this sample to validate whether your <a href="https://ckeditor.com/docs/ckeditor5/latest/builds/guides/development/custom-builds.html">custom build</a> works fine.</p>
 </div>
 
+<br/>
+<br/>
+<br/>
+
+<h2>CKEditor 5 Decoupled Editor with Plugins</h2>
+
+<div id="decoupled-toolbar" style="position: sticky; top: 0; z-index: 1000;"></div>
+
+<div id="decoupled-editor">
+	<h2>Sample</h2>
+	Hello
+	<span class="swisscom_ck5_placeholder" data-value="firstname">Vorname</span>
+	<span class="swisscom_ck5_placeholder" data-value="lastname">Nachname</span>
+	<span class="swisscom_ck5_placeholder" data-value="personallink" data-type="calltoaction">Personal Link</span>
+	<a class="swisscom_ck5_calltoaction" href="#">Foo</a>
+
+	<p>This is an instance of the <a href="https://ckeditor.com/docs/ckeditor5/latest/builds/guides/overview.html#classic-editor">classic editor build</a>.</p>
+
+	<figure class="image">
+		<img src="../tests/manual/sample.jpg" alt="Autumn fields" />
+	</figure>
+
+	<p>You can use this sample to validate whether your <a href="https://ckeditor.com/docs/ckeditor5/latest/builds/guides/development/custom-builds.html">custom build</a> works fine.</p>
+</div>
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
 <script src="../build/ckeditor.js"></script>
 <script>
+	// ClassicEditor - START
 	swisscomEditors.ClassicEditor.create( document.querySelector( '#classic-editor' ), {
 		toolbar: {
 			items: [
@@ -103,6 +169,9 @@
 		.catch( error => {
 			console.error( 'There was a problem initializing the editor.', error );
 		} );
+	// ClassicEditor - END
+
+	// InlineEditor - START
 	swisscomEditors.InlineEditor.create( document.querySelector( '#inline-editor' ), {
 	toolbar: {
 		items: [
@@ -147,6 +216,56 @@
 	.catch( error => {
 		console.error( 'There was a problem initializing the editor.', error );
 	} );
+	// InlineEditor - END
+
+	// DecoupledEditor - START
+	swisscomEditors.DecoupledEditor.create( document.querySelector( '#decoupled-editor' ), {
+	toolbar: {
+		items: [
+			'bold',
+			'italic',
+			'|',
+			'bulletedList',
+			'numberedList',
+			'|',
+			'link',
+			'|',
+			'insertTable',
+			'|',
+			'placeholder', // no visible on default
+			// callToAction -> is not a plugin but a link decorator defined in the editor config
+		]
+	},
+	table: {
+		contentToolbar: [
+			'tableColumn',
+			'tableRow',
+			'mergeTableCells'
+		]
+	},
+	link: {
+			decorators: {
+				toggleCallToAction: {
+					mode: "manual",
+					label: "CallToAction Button",
+					attributes: {
+					class: "swisscom_ck5_calltoaction",
+				},
+			},
+		}
+	},
+	// This value must be kept in sync with the language defined in webpack.config.js.
+	language: 'en',
+})
+	.then( editor => {
+		const toolbarContainer = document.querySelector( '#decoupled-toolbar' );
+        toolbarContainer.appendChild( editor.ui.view.toolbar.element );
+		window.editor = editor;
+	} )
+	.catch( error => {
+		console.error( 'There was a problem initializing the editor.', error );
+	} );
+	// DecoupledEditor - END
 </script>
 
 </body>
