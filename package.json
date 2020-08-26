@@ -1,6 +1,6 @@
 {
   "name": "ckeditor5-build-swisscom",
-  "version": "18.0.0",
+  "version": "18.1.0",
   "description": "Combines the ClassicEditor and InlineEditor with custom plugins in one build.",
   "keywords": [
     "ckeditor5-build",

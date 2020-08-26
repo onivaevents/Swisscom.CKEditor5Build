@@ -31,9 +31,10 @@ When developing you might want to activate behavior that should not be activated
 
 ## Creating a new release
 
+* increase the version number in package.json
 * run `npm run build`
 * merge your changes into master
-* upgrade dependencies
+* upgrade dependencies in your projects
 
 
 
