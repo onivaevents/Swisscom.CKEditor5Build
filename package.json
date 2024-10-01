@@ -1,6 +1,6 @@
 {
   "name": "ckeditor5-build-swisscom",
-  "version": "18.1.0",
+  "version": "18.2.0",
   "description": "Combines the ClassicEditor and InlineEditor with custom plugins in one build.",
   "keywords": [
     "ckeditor5-build",
@@ -56,7 +56,7 @@
     "postcss-loader": "^3.0.0",
     "raw-loader": "^3.1.0",
     "style-loader": "^1.0.0",
-    "stylelint": "^11.1.1",
+    "stylelint": "^12.0.0",
     "stylelint-config-ckeditor5": "^1.0.0",
     "terser-webpack-plugin": "^2.2.1",
     "webpack": "^4.39.1",

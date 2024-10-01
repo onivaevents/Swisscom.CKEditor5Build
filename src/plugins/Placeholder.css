@@ -1,32 +1,37 @@
 .swisscom_ck5_placeholder {
 	padding-top: 2px;
 	padding-bottom: 2px;
-	border-left: 1px solid #B1B9BE;
-	border-right: 1px solid #B1B9BE;
-	background: #CFD5D9;
+	border-left: 1px solid #BEC1CB;
+	border-right: 1px solid #BEC1CB;
+	background: #DFE1E7;
 }
 
 .swisscom_ck5_placeholder.ck-widget_selected {
-	background: #0851DA;
+	background: #3E327E;
 	color: #fff;
-	border-color: #0851DA;
+	border-color: #3E327E;
 }
 
 .swisscom_ck5_placeholder[data-type='calltoaction'] {
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	padding-left: 28px;
-	padding-right: 28px;
-	border-radius: 5px;
-	background: #1781e3;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 12px;
+	padding-bottom: 12px;
+	border-radius: 6px;
+	background: #6349CE;
 	color: white;
-	height: 48px;
 	text-decoration: none;
 	min-width: 160px;
+	font-size: 18px;
+	line-height: 28px;
+	font-weight: 500;
 }
 
 .swisscom_ck5_placeholder[data-type='calltoaction']:hover {
-	background: #0851da !important;
+	background: #3E327E !important;
 	color: white !important;
 }
+
